@@ -2,8 +2,9 @@ exports.handler = async (event) => {
     console.log('Received event:', JSON.stringify(event, null, 2));
 
     const validPath = '/hello';
+    const validMethod = 'GET';
 
-    if (event.path !== validPath) {
+    if (event.path !== validPath || event.httpMethod !== validMethod) {
         return {
             statusCode: 400,
             body: JSON.stringify({
